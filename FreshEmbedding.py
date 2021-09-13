@@ -9,8 +9,8 @@ warnings.filterwarnings(action='ignore', category=UserWarning, module='gensim')
 from gensim import models, matutils
 
 
-input_filename =  'D:/MICCAI/Incremental Windows/2004-2018/Bigram2004_2018.txt'		# file of text to train on
-model_filename =  'D:/MICCAI/Incremental Windows/2004-2018/Bigram2004_2018.model'		# name for saving trained model
+input_filename =  'data/paper_content_2010.txt'		# file of text to train on
+model_filename =  'models/fresh_model_2010.model'		# name for saving trained model
 
 # train using skip-gram?
 # (ignore unless you wanna do detailed tweaking)
