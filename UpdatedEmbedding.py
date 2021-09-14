@@ -20,7 +20,7 @@ new_sentences = models.word2vec.LineSentence(input_filename)
 model.build_vocab(new_sentences, update=True)
 #model.train(new_sentences)
 bigram_transformer = models.Phrases(new_sentences)
-model.train(bigram_transformer[new_sentences], total_examples=model.corpus_count, epochs=model.iter)
+model.train(bigram_transformer[new_sentences], total_examples=model.corpus_count, epochs=model.epochs)
 model.save(newModel_filename)
 
 # bye
