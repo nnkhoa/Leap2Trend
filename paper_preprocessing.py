@@ -30,7 +30,8 @@ if __name__ == '__main__':
 
     # do preprocessing
     papers['paper_text'] = papers['paper_text'].progress_apply(lambda x: text_preprocess(x, stopword_list))
-
+    papers['title'] = papers['title'].str.lower()
+    
     for year in range(2000, 2016):
         paper_yearly = papers.loc[papers['year'] == year]
         
