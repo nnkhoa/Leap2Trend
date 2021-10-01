@@ -3,9 +3,9 @@ import java.io.*;
 public class RankExtraction {
 
 	public static void main(String[] args) {
-		String pathFolder = "D:\\Sliding Windows\\top20Keywords\\";
-		String pathPW = "D:\\Sliding Windows\\Ranking1.txt";
-		String file1 = "D:\\Sliding Windows\\12_RankedKeywords.txt";
+		String pathFolder = "/Users/khoanguyen/Workspace/git/Leap2Trend/top20kw/";
+		String pathPW = "Ranking1.txt";
+		String file1 = "kw_list.txt";
 		String line, fileName, lineFileName, rank;
 		File folder = new File(pathFolder);
 
@@ -14,8 +14,8 @@ public class RankExtraction {
 			BufferedReader bfFileName = null;
 			PrintWriter pw = new PrintWriter(pathPW);
 			while ((line = bfFile1.readLine()) != null) {
-				String keyword = line.substring(line.indexOf(")") + 2, line.length());
-				pw.print(keyword);
+				String keyword = line.substring(line.indexOf(")") + 1, line.length());
+				pw.println(keyword);
 				System.out.println(keyword);
 				if (folder.isDirectory()) {
 					for (File f : folder.listFiles()) {
@@ -25,11 +25,12 @@ public class RankExtraction {
 							while ((lineFileName = bfFileName.readLine()) != null) {
 								if (lineFileName.contains(keyword)) {
 									rank = lineFileName.substring(0, lineFileName.indexOf(')'));
-									System.out.println("The Rank of the keywords " + keyword + "in the file " + fileName
+									System.out.println("The Rank of the keywords " + keyword + " in the file " + fileName
 											+ " is " + rank);
 									pw.println();
 									pw.print("The Rank of the keywords in the file " + fileName + " is " + rank);
 									pw.println();
+									break;
 								}
 
 							}
