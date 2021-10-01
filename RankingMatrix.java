@@ -142,8 +142,8 @@ class RankingMatrix {
 			int j = 2018;
 			//do {
 
-				String path = "D:\\MICCAI\\Sliding Windows\\"+i+"_"+j+"\\";
-				String fileName = "top20.txt";
+				String path = "";
+				String fileName = "similarity_matrix.txt";
 				PrintWriter pwOriginal = new PrintWriter(path + "top20_OriginalMatrix.txt");
 				PrintWriter pw = new PrintWriter(path + "top20_RankedMatrix.txt");
 				PrintWriter pwPositions = new PrintWriter(path + "Positions.txt");
@@ -151,8 +151,8 @@ class RankingMatrix {
 				BufferedReader bf = new BufferedReader(new FileReader(path + fileName));
 				System.out.println("Creation of matrix from the file " + fileName);
 				System.out.println("<------------------------------> ");
-				double mat[][] = createMatrix(bf, path + fileName, 17);
-				int n = 17;
+				double mat[][] = createMatrix(bf, path + fileName, 20);
+				int n = 20;
 
 				System.out.println("Original Matrix:");
 				printMat(mat, n);
@@ -170,7 +170,7 @@ class RankingMatrix {
 				System.out.println("Saving Matrix:");
 				saveMat(rankedMat, n, pw);
 
-				for (int k = 17; k <= 71; k += 2) {
+				for (int k = 17; k <= 100; k += 2) {
 					position(rankedMat, n, k);
 					System.out.println(position(rankedMat, n, k));
 					pwPositions.write(position(rankedMat, n, k));
